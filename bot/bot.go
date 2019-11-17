@@ -3,17 +3,18 @@ package bot
 import (
 	"bytes"
 	"fmt"
-	"github.com/indes/flowerss-bot/bot/fsm"
-	"github.com/indes/flowerss-bot/config"
-	"github.com/indes/flowerss-bot/model"
-	"golang.org/x/net/proxy"
-	tb "gopkg.in/tucnak/telebot.v2"
 	"html/template"
 	"log"
 	"net/http"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/indes/flowerss-bot/bot/fsm"
+	"github.com/indes/flowerss-bot/config"
+	"github.com/indes/flowerss-bot/model"
+	"golang.org/x/net/proxy"
+	tb "gopkg.in/tucnak/telebot.v2"
 )
 
 var (
@@ -52,9 +53,9 @@ func init() {
 	poller := &tb.LongPoller{Timeout: 10 * time.Second}
 	spamProtected := tb.NewMiddlewarePoller(poller, func(upd *tb.Update) bool {
 
-		if !CheckAdmin(upd) {
-			return false
-		}
+		// if !CheckAdmin(upd) {
+		// return false
+		// }
 
 		return true
 	})
